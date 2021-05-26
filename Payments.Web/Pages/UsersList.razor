@@ -1,0 +1,32 @@
+﻿@page "/userlist"
+@inherits UsersListBase
+
+<h3>Users List</h3>
+
+<div class="card-deck">
+
+    @if (UsersList == null)
+    {
+        <div class="spinner"></div>
+    }
+    else
+    {
+        @foreach (var usr in UsersList)
+        {
+            <div class="card m-3" style="min-width: 18rem; max-width:30.5%;">
+                <div class="card-header">
+                    <h3>info: </h3>
+                    <h4>id: @usr.UserTestId </h4>
+                    <h4>name: @usr.UserTestNamse</h4>
+                    <h4>Age  @usr.Age  Nick: @usr.Nickname</h4>
+                </div>
+
+                <div class="card-footer text-center">
+                    <a href="/userdetails/@usr.UserTestId" class="btn btn-primary m-1">View</a>
+
+                </div>
+            </div>
+        }
+    }
+
+</div>
