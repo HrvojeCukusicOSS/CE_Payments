@@ -1,0 +1,51 @@
+﻿@page "/FinalBill"
+@inherits FinalBillPageBase
+
+<div class="card-deck">
+
+    ITS ALL ABOUT TEST TEST TSET
+    
+    <AuthorizeView Roles="Admin">
+        <Authorized>
+            @if (b != null)
+    {
+
+
+            <div class="card-header">
+                <h3>Info </h3>
+                <h4>id: @b.IdFinalBill </h4>
+
+                <h4>Payers name: @b.Payer.Name</h4>
+                <h4>Recivers name: @b.Receiver.Name </h4>
+            </div>
+            }
+            else { <h1>aaaaaaaaaaa</h1>}
+
+
+            @if (FinalBills == null)
+    {
+
+
+            <div class="spinner"></div>
+    }
+    else
+    {
+            @foreach (var bill in FinalBills)
+        {
+            <div class="card-header">
+                <h3>Info </h3>
+                <h4>id: @bill.IdFinalBill </h4>
+
+                <h4>Payers name: @bill.Payer.Name</h4>
+                <h4>Recivers name: @bill.Receiver.Name </h4>
+            </div>
+
+        }
+    }
+        </Authorized>
+        <NotAuthorized>
+            not authorized
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+

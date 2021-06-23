@@ -1,0 +1,228 @@
+﻿@page "/StatusesMenagment"
+@inherits StatusesMenagmentBase
+
+
+<label>
+    <h2>List of statuses for Final bill:</h2>
+</label>
+<div calss="card">
+
+    @if (statusFinalBills != null)
+    {
+        <div class="row">
+            <div class="col-1">
+                <label>
+                    Status ID
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Short name
+                </label>
+            </div>
+            <div class="col-5">
+                <label>
+                    Description
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Code
+                </label>
+            </div>
+        </div>
+
+
+        @foreach (var s in statusFinalBills)
+        {
+            <div class="row">
+                <div class="col-1 card">
+                    <label class="col-10">
+                        @s.IdStatus
+                    </label>
+                </div>
+                <div class="col-3 card">
+                    <label class="col-10">
+                        @s.ShortName
+                    </label>
+                </div>
+                <div class="col-5 card">
+                    <label class="col-10">
+                        @s.Description
+                    </label>
+                </div>
+                <div class="col-2 card">
+                    <label class="col-10">
+                        @s.Code
+                    </label>
+                </div>
+            </div>
+
+        }
+    }
+    <div class="card m-3">
+        <EditForm Model="statusModel" OnSubmit="OnAddStatusFinalBill">
+            <div>
+                <label for="shortname" class="col-10">
+                    <h4>Add new status for FinalBill</h4>
+                </label>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div>
+                        <label for="shortname" class="col-10">
+                            Short name of code:
+                        </label>
+                    </div>
+                    <div class="card" style="width= 90%">
+                        <InputText id="shortname" class="form-control" placeholder="Short name of status"
+                                   @bind-Value="statusModel.ShortName" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div>
+                        <label for="description" class=" col-form-label">
+                            Status description:
+                        </label>
+                    </div>
+                    <div class="card" style="width= 90%">
+                        <InputText id="description" class="form-control" placeholder="Description"
+                                   @bind-Value="statusModel.Description" />
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div>
+                        <label for="code" class=" col-form-label">
+                            Status code:
+                        </label>
+                    </div>
+                    <div class="card">
+                        <InputText id="code" class="form-control" placeholder="Code"
+                                   @bind-Value="statusModel.Code" />
+                    </div>
+                </div>
+                <div class="col-1" style="margin:auto">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </EditForm>
+    </div>
+</div>
+<label>
+    List of statuses for PaymentSolutions:
+</label>
+<div calss="card">
+
+    @if (statusPaymentSolutions != null)
+    {
+        <div class="row">
+            <div class="col-1">
+                <label>
+                    Status ID
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Short name
+                </label>
+            </div>
+            <div class="col-5">
+                <label>
+                    Description
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Code
+                </label>
+            </div>
+        </div>
+
+
+        @foreach (var s in statusPaymentSolutions)
+        {
+            <div class="row">
+                <div class="col-1 card">
+                    <label class="col-10">
+                        @s.IdStatus
+                    </label>
+                </div>
+                <div class="col-3 card">
+                    <label class="col-10">
+                        @s.ShortName
+                    </label>
+                </div>
+                <div class="col-5 card">
+                    <label class="col-10">
+                        @s.Description
+                    </label>
+                </div>
+                <div class="col-2 card">
+                    <label class="col-10">
+                        @s.Code
+                    </label>
+                </div>
+                <div class="col-1 card">
+                    <label>
+                        <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                            <span class="oi oi-power-standby" aria-hidden="true"></span> Edit
+                        </NavLink>
+                    </label>
+                    <label>
+                        <button class="btn btn-danger" type="button" @onclick="Delete_Click">
+                            Delete
+                        </button>
+                    </label>
+
+                </div>
+            </div>
+
+        }
+    }
+    <div class="card m-3">
+        <div>
+            <h5>Add new status for Payment Solution</h5>
+        </div>
+        <EditForm Model="statusModel2" OnSubmit="OnAddStatusPaymentSolution">
+            <div class="row">
+                <div class="col-3">
+                    <div>
+                        <label for="shortname" class="col-10">
+                            Short name of code:
+                        </label>
+                    </div>
+                    <div class="card" style="width= 90%">
+                        <InputText id="shortname" class="form-control" placeholder="Short name of status"
+                                   @bind-Value="statusModel2.ShortName" />
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div>
+                        <label for="description" class=" col-form-label">
+                            Status description:
+                        </label>
+                    </div>
+                    <div class="card" style="width= 90%">
+                        <InputText id="description" class="form-control" placeholder="Description"
+                                   @bind-Value="statusModel2.Description" />
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div>
+                        <label for="code" class=" col-form-label">
+                            Status code:
+                        </label>
+                    </div>
+                    <div class="card">
+                        <InputText id="code" class="form-control" placeholder="Code"
+                                   @bind-Value="statusModel2.Code" />
+                    </div>
+                </div>
+                <div class="col-1" style="margin:auto">
+                    <button type="submit">Submit</button>
+                </div>
+            </div>
+        </EditForm>
+    </div>
+</div>
+

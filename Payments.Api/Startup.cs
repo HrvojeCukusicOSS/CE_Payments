@@ -7,7 +7,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Payments.Api.Controllers;
-using Payments.Api.Models;
+using Payments.Domain;
+
+using Payments.Domain.Repository;
+using Payments.Domain.Repository.Interfaces;
+using Payments.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,12 +33,20 @@ namespace Payments.Api
         {
            
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
-            services.AddScoped<IUserTestRepository, UserTestRepository>();
+            
+            // services.AddScoped<FinalBill, >();
             services.AddControllers();
+
+
             services.AddSwaggerGen();
-           // services.AddMvc();
+           //services.AddMvc();
             services.AddRazorPages();
-           
+            services.AddScoped<IReceiversRepository, ReceiversRepository>();
+            services.AddScoped<IPayersRepository, PayersRepository>();
+            services.AddScoped<IFinallBillRepository, FinalBillRepository>();
+            services.AddScoped<IStatusFinalBillRepository, StatusFinalBillRepository>();
+            services.AddScoped<IStatusPaymentSolutionRepository, StatusPaymentSolutionRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
