@@ -12,5 +12,8 @@ namespace Payments.Web.Services.Interfaces
 
         Task<IEnumerable<StatusFinalBill>> GetStatuses();
         Task<StatusFinalBill> AddStatus(StatusFinalBill status);
+        Task<StatusFinalBill> GetStatus(int id);
+        Task<StatusFinalBill> UpdateStatus(StatusFinalBill status);
+        Task DeleteStatus(int id);
     }
 }

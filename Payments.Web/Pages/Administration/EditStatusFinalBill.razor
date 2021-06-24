@@ -1,21 +1,22 @@
-﻿@page "/EditStatusFinalBill/{id}"
+﻿@page "/editstatusfinalbill/{id}"
+@page "/editstatusfinalbill"
 @inherits EditStatusFinalBillBase
 
 
 <h3>StatusFinalBill</h3>
-<EditForm Model="statusModel2" OnSubmit="OnAddStatusPaymentSolution">
+<EditForm Model="EditStatusModel" OnSubmit="OnSubmit">
 
 
     <div class="row">
         <div class="col-3">
             <div>
-                <label for="shortname" class="col-10">
+                <label for="shortname" class="col-form-label">
                     Short name of code:
                 </label>
             </div>
-            <div class="card" style="width= 90%">
+            <div class="card" style="margin: auto">
                 <InputText id="shortname" class="form-control" placeholder="Short name of status"
-                           @bind-Value="statusModel2.ShortName" />
+                           @bind-Value="EditStatusModel.ShortName" />
             </div>
         </div>
         <div class="col-4">
@@ -24,9 +25,9 @@
                     Status description:
                 </label>
             </div>
-            <div class="card" style="width= 90%">
+            <div class="card" style="margin: auto">
                 <InputText id="description" class="form-control" placeholder="Description"
-                           @bind-Value="statusModel2.Description" />
+                           @bind-Value="EditStatusModel.Description" />
             </div>
         </div>
         <div class="col-2">
@@ -37,11 +38,19 @@
             </div>
             <div class="card">
                 <InputText id="code" class="form-control" placeholder="Code"
-                           @bind-Value="statusModel2.Code" />
+                           @bind-Value="EditStatusModel.Code" />
             </div>
         </div>
         <div class="col-1" style="margin:auto">
             <button type="submit">Submit</button>
         </div>
-    </div>
+        <div class="col-1" style="margin:auto">
+            @if (EditStatusModel.IdStatus > 0)
+            {
+                <button class="btn btn-danger" type="button" @onclick="Delete_Click">
+                    Delete
+                </button>
+            }
+        </div>
+        </div>
 </EditForm>

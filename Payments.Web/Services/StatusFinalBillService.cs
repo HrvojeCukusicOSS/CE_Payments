@@ -24,11 +24,24 @@ namespace Payments.Web.Services
             return await httpClient.PostJsonAsync<StatusFinalBill>($"api/StatusFinalBill/AddStatus/{status}",status);
         }
 
+        public async Task<StatusFinalBill> UpdateStatus(StatusFinalBill status)
+        {
+            return await httpClient.PostJsonAsync<StatusFinalBill>($"api/StatusFinalBill/UpdateStatus/{status}",status);
+        }
+
+        public async Task<StatusFinalBill> GetStatus(int id)
+        {
+            return await httpClient.GetJsonAsync<StatusFinalBill>($"/api/StatusFinalBill/GetStatus/{id}");
+        }
+
         public async Task<IEnumerable<StatusFinalBill>> GetStatuses()
         {
             return await httpClient.GetJsonAsync<StatusFinalBill[]>($"/api/StatusFinalBill/GetStatuses");
         }
 
-        
+        public async Task DeleteStatus(int id)
+        {
+            await httpClient.DeleteAsync($"/api/StatusFinalBill/DeleteStatus/{id}");
+        }
     }
 }

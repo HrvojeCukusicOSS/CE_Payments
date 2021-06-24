@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿    using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Payments.Domain.Repository.Interfaces;
 using Payments.Model.Entities;
@@ -50,17 +50,18 @@ namespace Payments.Api.Controllers
             }
         }
         [HttpPost]
-        [Route("{id:int},{status}")]
-        public async Task<ActionResult<StatusFinalBill>> UpdateStatusFinalBill(int id, StatusFinalBill status)
+        [Route("{status}")]
+        public async Task<ActionResult<StatusFinalBill>> UpdateStatus( StatusFinalBill status)
         {
             try
             {
                 if (status == null)
                     return BadRequest();
 
-                var userToUpdate = await _statusFinalBillRepository.GetStatus(id);
+                var userToUpdate = await _statusFinalBillRepository.GetStatus(status.IdStatus);
                 if (userToUpdate == null)
-                    return NotFound($"No user with Id= {id}");
+                    return NotFound($"No user with Id= {status.IdStatus}");
+               
                 return await _statusFinalBillRepository.UpdateStatus(status);
             }
             catch
@@ -90,7 +91,7 @@ namespace Payments.Api.Controllers
         }
         [HttpDelete]
         [Route("{id:int}")]
-        public async Task<ActionResult<StatusFinalBill>> DeleteUserModel(int id)
+        public async Task<ActionResult<StatusFinalBill>> DeleteStatus(int id)
         {
             try
             {
