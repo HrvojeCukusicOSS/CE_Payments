@@ -24,10 +24,10 @@ namespace Payments.Web.Services
             return await httpClient.PostJsonAsync<StatusPaymentSolution>($"api/StatusPaymentSolution/AddStatus/{status}",status);
         }
 
-        public async Task<HttpResponseMessage> DeleteStatus(int id)
-        {
-            return await httpClient.DeleteAsync($"api/StatusPaymentSolution/AddStatus/{id}");
-        }
+        //public async Task<HttpResponseMessage> DeleteStatus(int id)
+        //{
+        //    return await httpClient.DeleteAsync($"api/StatusPaymentSolution/AddStatus/{id}");
+        //}
 
         public async Task<IEnumerable<StatusPaymentSolution>> GetStatuses()
         {

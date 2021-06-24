@@ -31,5 +31,10 @@ namespace Payments.Model.Entities
         //[System.Text.Json.Serialization.JsonIgnore]
         public virtual  StatusFinalBill Status { get; set; }
 
+        public int ConformationID { get; set; }
+        [ForeignKey("ConformationTable")]
+        [InverseProperty("FinalBill")]
+        //[System.Text.Json.Serialization.JsonIgnore]
+        public virtual ConformationTable Conformaion { get; set; }
     }
 }

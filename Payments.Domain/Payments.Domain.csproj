@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Payments.Model\Payments.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+
 </Project>

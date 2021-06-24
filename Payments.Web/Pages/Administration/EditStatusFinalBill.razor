@@ -1,9 +1,9 @@
-﻿@page "/EditStatusFinalBill/{id}"
+﻿@page "/editstatusfinalbill/{id}"
 @inherits EditStatusFinalBillBase
 
 
 <h3>StatusFinalBill</h3>
-<EditForm Model="statusModel2" OnSubmit="OnAddStatusPaymentSolution">
+<EditForm Model="EditStatusModel" OnSubmit="OnSubmit">
 
 
     <div class="row">
@@ -13,9 +13,9 @@
                     Short name of code:
                 </label>
             </div>
-            <div class="card" style="width= 90%">
+            <div class="card" style="margin: auto">
                 <InputText id="shortname" class="form-control" placeholder="Short name of status"
-                           @bind-Value="statusModel2.ShortName" />
+                           @bind-Value="EditStatusModel.ShortName" />
             </div>
         </div>
         <div class="col-4">
@@ -24,9 +24,9 @@
                     Status description:
                 </label>
             </div>
-            <div class="card" style="width= 90%">
+            <div class="card" style="margin: auto">
                 <InputText id="description" class="form-control" placeholder="Description"
-                           @bind-Value="statusModel2.Description" />
+                           @bind-Value="EditStatusModel.Description" />
             </div>
         </div>
         <div class="col-2">
@@ -37,7 +37,7 @@
             </div>
             <div class="card">
                 <InputText id="code" class="form-control" placeholder="Code"
-                           @bind-Value="statusModel2.Code" />
+                           @bind-Value="EditStatusModel.Code" />
             </div>
         </div>
         <div class="col-1" style="margin:auto">

@@ -10,7 +10,8 @@ namespace Payments.Web.Services.Interfaces
     public interface IStatusPaymentSolutionService
     {
         Task<IEnumerable<StatusPaymentSolution>> GetStatuses();
+
         Task<StatusPaymentSolution> AddStatus(StatusPaymentSolution status);
-        Task<StatusPaymentSolution> DeleteStatus(int id);
+        //Task<StatusPaymentSolution> DeleteStatus(int id);
     }
 }
