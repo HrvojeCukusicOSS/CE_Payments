@@ -31,6 +31,7 @@ namespace Payments.Web.Pages.Administration
 
         protected async override Task OnInitializedAsync()
         {
+<<<<<<< HEAD
             int.TryParse(Id, out int idint);
             if(idint !=  0)
             {
@@ -62,6 +63,19 @@ namespace Payments.Web.Pages.Administration
         {
             await StatusFinalBillService.DeleteStatus(EditStatusModel.IdStatus);
             NavigationManager.NavigateTo("/statuseslist");
+=======
+            StatusFinalBill = await StatusFinalBillService.GetStatus(int.Parse(Id));
+            Mapper.Map(StatusFinalBill, EditStatusModel);
+        }
+        protected async Task OnSubmit()
+        {
+            Mapper.Map(EditStatusModel, StatusFinalBill);
+            var result = await StatusFinalBillService.UpdateStatus(StatusFinalBill);
+            if(result != null)
+            {
+                NavigationManager.NavigateTo("/");
+            }
+>>>>>>> main
         }
     }
 }
