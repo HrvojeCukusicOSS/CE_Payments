@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Payments.Model.Profiles;
 
 namespace Payments.Web
 {
@@ -35,8 +36,8 @@ namespace Payments.Web
 
             services.AddAuthentication("Identity.Application")
                 .AddCookie();
-           
-            //services.AddAutoMapper(typeof(UserModelProfile));
+            
+            services.AddAutoMapper(typeof(StatusesProfile));    
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddHttpClient<IFinalBillService, FinalBillService>(client =>
