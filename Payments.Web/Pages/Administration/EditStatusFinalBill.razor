@@ -1,4 +1,8 @@
 ﻿@page "/editstatusfinalbill/{id}"
+<<<<<<< HEAD
+@page "/editstatusfinalbill"
+=======
+>>>>>>> main
 @inherits EditStatusFinalBillBase
 
 
@@ -9,7 +13,7 @@
     <div class="row">
         <div class="col-3">
             <div>
-                <label for="shortname" class="col-10">
+                <label for="shortname" class="col-form-label">
                     Short name of code:
                 </label>
             </div>
@@ -43,5 +47,13 @@
         <div class="col-1" style="margin:auto">
             <button type="submit">Submit</button>
         </div>
-    </div>
+        <div class="col-1" style="margin:auto">
+            @if (EditStatusModel.IdStatus > 0)
+            {
+                <button class="btn btn-danger" type="button" @onclick="Delete_Click">
+                    Delete
+                </button>
+            }
+        </div>
+        </div>
 </EditForm>

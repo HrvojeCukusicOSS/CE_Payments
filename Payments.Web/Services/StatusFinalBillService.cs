@@ -39,6 +39,9 @@ namespace Payments.Web.Services
             return await httpClient.GetJsonAsync<StatusFinalBill[]>($"/api/StatusFinalBill/GetStatuses");
         }
 
-        
+        public async Task DeleteStatus(int id)
+        {
+            await httpClient.DeleteAsync($"/api/StatusFinalBill/DeleteStatus/{id}");
+        }
     }
 }

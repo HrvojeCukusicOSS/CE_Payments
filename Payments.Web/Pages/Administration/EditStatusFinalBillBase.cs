@@ -31,6 +31,39 @@ namespace Payments.Web.Pages.Administration
 
         protected async override Task OnInitializedAsync()
         {
+<<<<<<< HEAD
+            int.TryParse(Id, out int idint);
+            if(idint !=  0)
+            {
+                StatusFinalBill = await StatusFinalBillService.GetStatus(int.Parse(Id));
+            }
+            
+                Mapper.Map(StatusFinalBill, EditStatusModel);
+        }
+        protected async Task OnSubmit()
+        {
+            if (StatusFinalBill == null)
+                StatusFinalBill = new StatusFinalBill();
+
+            var result = new StatusFinalBill();
+            Mapper.Map(EditStatusModel, StatusFinalBill);
+            
+            if (StatusFinalBill.IdStatus != 0)
+            {
+                 result = await StatusFinalBillService.UpdateStatus(StatusFinalBill);
+            }
+            else
+            {
+                result = await StatusFinalBillService.AddStatus(StatusFinalBill);
+            }
+                NavigationManager.NavigateTo("/statuseslist");
+
+        }
+        protected async Task Delete_Click()
+        {
+            await StatusFinalBillService.DeleteStatus(EditStatusModel.IdStatus);
+            NavigationManager.NavigateTo("/statuseslist");
+=======
             StatusFinalBill = await StatusFinalBillService.GetStatus(int.Parse(Id));
             Mapper.Map(StatusFinalBill, EditStatusModel);
         }
@@ -42,6 +75,7 @@ namespace Payments.Web.Pages.Administration
             {
                 NavigationManager.NavigateTo("/");
             }
+>>>>>>> main
         }
     }
 }

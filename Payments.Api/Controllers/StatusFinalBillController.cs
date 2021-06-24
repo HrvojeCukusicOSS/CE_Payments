@@ -91,7 +91,7 @@ namespace Payments.Api.Controllers
         }
         [HttpDelete]
         [Route("{id:int}")]
-        public async Task<ActionResult<StatusFinalBill>> DeleteUserModel(int id)
+        public async Task<ActionResult<StatusFinalBill>> DeleteStatus(int id)
         {
             try
             {

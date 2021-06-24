@@ -1,0 +1,128 @@
+﻿@page "/statuseslist"
+@inherits StatusesListPageBase
+
+
+<h3>StatusesListPage</h3>
+<div class="card">
+    @if (statusFinalBills != null)
+    {
+        <div class="row">
+            <div class="col-1">
+                <label>
+                    Status ID
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Short name
+                </label>
+            </div>
+            <div class="col-5">
+                <label>
+                    Description
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Code
+                </label>
+            </div>
+        </div>
+
+
+        @foreach (var s in statusFinalBills)
+        {
+<div class="row">
+    <div class="col-1 card">
+        <label class="col-form-label">
+            @s.IdStatus
+        </label>
+    </div>
+    <div class="col-3 card">
+        <label class="col-form-label">
+            @s.ShortName
+        </label>
+    </div>
+    <div class="col-5 card">
+        <label class="col-form-label">
+            @s.Description
+        </label>
+    </div>
+    <div class="col-2 card">
+        <label class="col-form-label">
+            @s.Code
+        </label>
+    </div>
+    <label>
+        <NavLink class="nav-link card" href="@($"editstatusfinalbill/{s.IdStatus}")" Match="NavLinkMatch.All">
+            <span class="oi" aria-hidden="true"></span> Edit
+        </NavLink>
+    </label>
+</div>
+
+        }
+    }
+</div>
+<div calss="card">
+
+    @if (statusPaymentSolutions != null)
+    {
+        <div class="row">
+            <div class="col-1">
+                <label>
+                    Status ID
+                </label>
+            </div>
+            <div class="col-3">
+                <label>
+                    Short name
+                </label>
+            </div>
+            <div class="col-5">
+                <label>
+                    Description
+                </label>
+            </div>
+            <div class="col-2">
+                <label>
+                    Code
+                </label>
+            </div>
+        </div>
+
+
+        @foreach (var s in statusPaymentSolutions)
+        {
+            <div class="row">
+                <div class="col-1 card">
+                    <label class="col-10">
+                        @s.IdStatus
+                    </label>
+                </div>
+                <div class="col-3 card">
+                    <label class="col-10">
+                        @s.ShortName
+                    </label>
+                </div>
+                <div class="col-5 card">
+                    <label class="col-10">
+                        @s.Description
+                    </label>
+                </div>
+                <div class="col-2 card">
+                    <label class="col-10">
+                        @s.Code
+                    </label>
+                </div>
+                <div class="col-1 card">
+                    <label>
+                        <NavLink class="nav-link" href="@($"editstatusfinalbill/{s.IdStatus}")" Match="NavLinkMatch.All">
+                            <span class="oi" aria-hidden="true"></span> Edit
+                        </NavLink>
+                    </label>
+                </div>
+            </div>
+
+        }
+    }
+</div>
