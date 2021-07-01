@@ -29,9 +29,11 @@ namespace Payments.Web.Pages.Administration
         [Inject]
         public NavigationManager NavigationManager { get; set; }
 
+        public bool warning { get; set; } = false;
+
         protected async override Task OnInitializedAsync()
         {
-<<<<<<< HEAD
+
             int.TryParse(Id, out int idint);
             if(idint !=  0)
             {
@@ -62,20 +64,21 @@ namespace Payments.Web.Pages.Administration
         protected async Task Delete_Click()
         {
             await StatusFinalBillService.DeleteStatus(EditStatusModel.IdStatus);
-            NavigationManager.NavigateTo("/statuseslist");
-=======
-            StatusFinalBill = await StatusFinalBillService.GetStatus(int.Parse(Id));
-            Mapper.Map(StatusFinalBill, EditStatusModel);
-        }
-        protected async Task OnSubmit()
-        {
-            Mapper.Map(EditStatusModel, StatusFinalBill);
-            var result = await StatusFinalBillService.UpdateStatus(StatusFinalBill);
-            if(result != null)
+           
+
+            var a = await StatusFinalBillService.GetStatus(EditStatusModel.IdStatus);
+            if(a!=null)
             {
-                NavigationManager.NavigateTo("/");
+                StatusFinalBill = a; 
+                warning = true;
+                Mapper.Map(EditStatusModel, StatusFinalBill);
+                //NavigationManager.NavigateTo("/editstatusfinalbill/{EditStatusModel.IdStatus}");
             }
->>>>>>> main
+            else
+            {
+                NavigationManager.NavigateTo("/statuseslist");
+            }
+
         }
     }
 }

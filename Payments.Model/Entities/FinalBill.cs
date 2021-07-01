@@ -10,7 +10,7 @@ namespace Payments.Model.Entities
     public class FinalBill
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdFinalBill { get; set; }
 
         public int PayerId { get; set; }
@@ -25,16 +25,17 @@ namespace Payments.Model.Entities
         //[System.Text.Json.Serialization.JsonIgnore]
         public virtual  ReceiversTable Receiver { get; set; }
 
-        public int StatusId { get; set; }   
+        [Required]
+        public int? StatusId { get; set; }   
         [ForeignKey("StatusId")]
         [InverseProperty("FinalBill")]
-        //[System.Text.Json.Serialization.JsonIgnore]
+       // [System.Text.Json.Serialization.JsonIgnore]
         public virtual  StatusFinalBill Status { get; set; }
 
-        public int ConformationID { get; set; }
-        [ForeignKey("ConformationTable")]
-        [InverseProperty("FinalBill")]
+        //public int ConformationID { get; set; }
+        //[ForeignKey("ConformationTable")]
+        //[InverseProperty("FinalBill")]
         //[System.Text.Json.Serialization.JsonIgnore]
-        public virtual ConformationTable Conformaion { get; set; }
+        //public virtual ConformationTable Conformaion { get; set; }
     }
 }

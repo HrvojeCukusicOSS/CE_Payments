@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Configuration\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <None Remove="Configuration\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
       <PrivateAssets>all</PrivateAssets>
@@ -19,10 +25,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Payments.Model\Payments.Model.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Configuration\" />
   </ItemGroup>
 
 </Project>

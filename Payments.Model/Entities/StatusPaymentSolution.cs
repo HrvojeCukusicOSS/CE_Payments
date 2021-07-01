@@ -10,16 +10,18 @@ namespace Payments.Model.Entities
     [Table("StatusPaymentSolution")]
     public class StatusPaymentSolution
     {
+        //[Key]
+        //public int IdStatus { get; set; }
         [Key]
-        public int IdStatus { get; set; }
+        public int Id { get; set; }
         public string ShortName { get; set; }
 
         public string Description { get; set; }
 
         public string Code { get; set; }
-        //[InverseProperty("Status")]
-        //[System.Text.Json.Serialization.JsonIgnore]
-        //public  virtual ICollection<FinalBill> FinalBill{ get; set; }
+        [InverseProperty("Status")]
+        [System.Text.Json.Serialization.JsonIgnore]
+        public virtual ICollection<PaymentSolution> PaymentSolutions { get; set; }
 
     }
 }

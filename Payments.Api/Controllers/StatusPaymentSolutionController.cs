@@ -79,7 +79,7 @@ namespace Payments.Api.Controllers
                     return BadRequest();
 
                 var createUser = await _statusPaymentSolutionRepository.AddStatus(status);
-                return CreatedAtAction(nameof(GetStatus), new { id = createUser.IdStatus }, createUser);
+                return CreatedAtAction(nameof(GetStatus), new { id = createUser.Id }, createUser);
             }
             catch
             {

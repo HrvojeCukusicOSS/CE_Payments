@@ -28,7 +28,7 @@ namespace Payments.Domain.Repository
         }
         public async Task<StatusPaymentSolution> GetStatus(int Id)
         {
-            return await appDbContext.StatusPaymentSolutions.FirstOrDefaultAsync(e => e.IdStatus == Id);
+            return await appDbContext.StatusPaymentSolutions.FirstOrDefaultAsync(e => e.Id == Id);
         }
 
 
@@ -41,7 +41,7 @@ namespace Payments.Domain.Repository
        
         public async Task<StatusPaymentSolution> UpdateStatus(StatusPaymentSolution StatusPaymentSolution)
         {
-            var result = await appDbContext.StatusPaymentSolutions.FirstOrDefaultAsync(e => e.IdStatus == StatusPaymentSolution.IdStatus);
+            var result = await appDbContext.StatusPaymentSolutions.FirstOrDefaultAsync(e => e.Id == StatusPaymentSolution.Id);
             if(result != null)
             {
                 //fill for update 
@@ -54,7 +54,7 @@ namespace Payments.Domain.Repository
         }
         public async Task<StatusPaymentSolution> DeleteStatus(int Id)
         {
-            var result = await appDbContext.StatusPaymentSolutions.FirstOrDefaultAsync(e => e.IdStatus == Id);
+            var result = await appDbContext.StatusPaymentSolutions.FirstOrDefaultAsync(e => e.Id == Id);
             if( result != null)
             {
                 appDbContext.StatusPaymentSolutions.Remove(result);

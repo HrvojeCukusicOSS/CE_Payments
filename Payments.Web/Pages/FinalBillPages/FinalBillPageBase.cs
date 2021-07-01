@@ -14,12 +14,16 @@ namespace Payments.Web.Pages.FinalBillPages
         [Inject]
         public IFinalBillService FinalBillService { get; set; }
         public IEnumerable<FinalBill> FinalBills { get; set;  }
-        public FinalBill b { get; set; }
+        public FinalBill bill { get; set; }
         protected override async Task OnInitializedAsync()
         {
             FinalBills = (await FinalBillService.GetFinalBIlls()).ToList();
-            b   = (await FinalBillService.GetFinalBill(1));
+
+            //FinalBills = null;
            
+           
+            bill = (await FinalBillService.GetFinalBill(1));
+
         }
     }
 }

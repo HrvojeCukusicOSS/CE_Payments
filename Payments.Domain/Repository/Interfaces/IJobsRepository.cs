@@ -8,11 +8,10 @@ namespace Payments.Domain.Repository.Interfaces
 {
     public interface IJobsRepository
     {
-        Task<IEnumerable<JobsTable>> ReadAllJobsAsync();
+        Task<IEnumerable<JobsTable>> ReadJobsAsync();
         Task<JobsTable> ReadJobByIdAsync(int Id);
-        Task<JobsTable> ReadJobByNameAsync(string Name);
-        Task CreateJob(JobsTable Job);
-        Task UpdateJob(JobsTable Job);
-        Task DeleteJob(JobsTable Job);
+        Task<JobsTable> CreateJob(JobsTable Job);
+        Task<JobsTable> UpdateJob(JobsTable Job);
+        Task<JobsTable> DeleteJob(int id);
     }
 }

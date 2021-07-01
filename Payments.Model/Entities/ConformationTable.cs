@@ -11,13 +11,8 @@ namespace Payments.Model.Entities
     {
         [Key]
         public int ConformationID { get; set; }
-        public int JobListID { get; set; }
-        [ForeignKey("JobListID")]
-        //[InverseProperty("Conformation")]
-        public virtual JobsList JobList { get; set; }
         public decimal PriceCheck { get; set; }
-        /*[InverseProperty("Conformation")]
-        [System.Text.Json.Serialization.JsonIgnore]*/
-        public virtual ICollection<FinalBill> FinalBill { get; set; }
+        public int JobListId { get; set; }
+        public JobsList JobList { get; set; }
     }
 }

@@ -22,7 +22,7 @@ namespace Payments.Api.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<PayersTable>>> GetPayers()
         {
             try
@@ -35,6 +35,7 @@ namespace Payments.Api.Controllers
                     "Error retrieving data from the database");
             }
         }
+        [HttpGet]
         public async Task<ActionResult<PayersTable>> GetPayer(int id)
         {
             try
@@ -47,6 +48,7 @@ namespace Payments.Api.Controllers
                     "Error retrieving data from the database");
             }
         }
+        [HttpPut]
         public async Task<ActionResult<PayersTable>> UpdatePayer(int id, PayersTable payer)
         {
             try
@@ -65,6 +67,7 @@ namespace Payments.Api.Controllers
                 "Error updating user");
             }
         }
+        [HttpPost]
         public async Task<ActionResult<PayersTable>> AddUserModel(PayersTable payermodel)
         {
             try
@@ -82,6 +85,7 @@ namespace Payments.Api.Controllers
             }
 
         }
+        [HttpDelete]
         public async Task<ActionResult<PayersTable>> DeleteUserModel(int id)
         {
             try

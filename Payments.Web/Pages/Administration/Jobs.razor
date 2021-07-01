@@ -1,0 +1,62 @@
+﻿@page "/aboutjobs"
+@inherits JobsBase
+
+<h3>Jobs</h3>
+
+<div class="card">
+    @if (Jobs != null)
+    {
+<div class="row">
+    <div class="col-1">
+        <label>
+            Job ID
+        </label>
+    </div>
+    <div class="col-3">
+        <label>
+            Name
+        </label>
+    </div>
+    <div class="col-5">
+        <label>
+            Description
+        </label>
+    </div>
+    <div class="col-2">
+        <label>
+            Price
+        </label>
+    </div>
+</div>
+
+
+@foreach (var j in Jobs)
+{
+<div class="row">
+    <div class="col-1 card">
+        <label class="col-form-label">
+            @j.JobsID
+        </label>
+    </div>
+    <div class="col-3 card">
+        <label class="col-form-label">
+            @j.Name
+        </label>
+    </div>
+    <div class="col-5 card">
+        <label class="col-form-label">
+            @j.Description
+        </label>
+    </div>
+    <div class="col-2 card">
+        <label class="col-form-label">
+            @j.Price
+        </label>
+    </div>
+    <label>
+        <NavLink class="nav-link card" href="@($"jobs/{j.JobsID}")" Match="NavLinkMatch.All">
+            <span class="oi" aria-hidden="true"></span> Edit
+        </NavLink>
+    </label>
+</div>}}
+</div>

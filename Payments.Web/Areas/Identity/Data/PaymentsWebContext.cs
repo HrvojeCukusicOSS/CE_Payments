@@ -21,7 +21,11 @@ namespace Payments.Web.Data
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
-            builder.Entity<IdentityRole>().HasData(new IdentityRole {Id = "2" , Name = "user" ,NormalizedName="USER", ConcurrencyStamp = "dontknow" });
+
+
+            //add edmanualy to db
+            //builder.Entity<IdentityRole>().HasData(new IdentityRole { Id = "3", Name = "admin", NormalizedName = "ADMIN", ConcurrencyStamp = "stamp" });
+            //builder.Entity<IdentityRole>().HasData(new IdentityRole {Id = "2" , Name = "user" ,NormalizedName="USER", ConcurrencyStamp = "dontknow" });
             
         }
     }

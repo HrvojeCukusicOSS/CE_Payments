@@ -26,6 +26,8 @@ namespace Payments.Api.Controllers
         {
             try
             {
+                
+
                 return (await _finalBillRepository.GetFinalBills()).ToList();
             }
             catch (Exception)
@@ -71,7 +73,7 @@ namespace Payments.Api.Controllers
 
         }
         [HttpPost]
-        [Route("/{id:int}")]
+        [Route("{id:int}")]
         public async Task<ActionResult<FinalBill>> AddFinalBill(FinalBill payermodel)
         {
             try
@@ -90,7 +92,7 @@ namespace Payments.Api.Controllers
 
         }
         [HttpDelete]
-        [Route("/{id:int}")]
+        [Route("{id:int}")]
         public async Task<ActionResult<FinalBill>> DeleteFinalBill(int id)
         {
             try

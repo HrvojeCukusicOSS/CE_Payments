@@ -47,6 +47,7 @@ namespace Payments.Api
             services.AddScoped<IStatusFinalBillRepository, StatusFinalBillRepository>();
             services.AddScoped<IStatusPaymentSolutionRepository, StatusPaymentSolutionRepository>();
             services.AddScoped<IJobsRepository, JobsRepository>();
+            services.AddScoped<IContractRepository, ContractRepository>();
 
         }
 

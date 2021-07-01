@@ -44,11 +44,8 @@ namespace Payments.Domain.Repository
             var result = await appDbContext.StatusFinalBills.FirstOrDefaultAsync(e => e.IdStatus == StatusFinalBill.IdStatus);
             if(result != null)
             {
-<<<<<<< HEAD
                 
-=======
                 //fill for update 
->>>>>>> main
                 result.ShortName = StatusFinalBill.ShortName;
                 result.Description = StatusFinalBill.Description;
                 result.Code = StatusFinalBill.Code;

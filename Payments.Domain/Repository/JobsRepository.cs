@@ -15,32 +15,50 @@ namespace Payments.Domain.Repository
         {
             Context = context;
         }
-        public async Task<IEnumerable<JobsTable>> ReadAllJobsAsync()
+        
+        public async Task<IEnumerable<JobsTable>> ReadJobsAsync()
         {
-            return await Context.Set<JobsTable>().ToListAsync();
+            return await Context.Jobs.ToListAsync();
         }
+
         public async Task<JobsTable> ReadJobByIdAsync(int Id)
         {
-            return await Context.Set<JobsTable>().FindAsync(Id);
+            return await Context.Jobs.FirstOrDefaultAsync(j => j.JobsID == Id);
         }
-        public async Task<JobsTable> ReadJobByNameAsync(string Name)
+
+        public async Task<JobsTable> CreateJob(JobsTable Job)
         {
-            return await Context.Set<JobsTable>().FindAsync(Name);
-        }
-        public async Task CreateJob(JobsTable Job)
-        {
-            await Context.Set<JobsTable>().AddAsync(Job);
+            var result = await Context.Jobs.AddAsync(Job);
             await Context.SaveChangesAsync();
+            return result.Entity;
         }
-        public Task UpdateJob(JobsTable Job)
+
+        public async Task<JobsTable> UpdateJob(JobsTable Job)
         {
-            Context.Entry(Job).State = EntityState.Modified;
-            return Context.SaveChangesAsync();
+            var result = await Context.Jobs.FirstOrDefaultAsync(j => j.JobsID == Job.JobsID);
+            if (result != null)
+            {
+                result.Name = Job.Name;
+                result.Price = Job.Price;
+                result.Description = Job.Description;
+                result.JobListId = Job.JobListId;
+                result.JobList = Job.JobList;
+                await Context.SaveChangesAsync();
+                return result;
+            }
+            return null;
         }
-        public Task DeleteJob(JobsTable Job)
+
+        public async Task<JobsTable> DeleteJob(int id)
         {
-            Context.Set<JobsTable>().Remove(Job);
-            return Context.SaveChangesAsync();
+            var result = await Context.Jobs.FirstOrDefaultAsync(j => j.JobsID == id);
+            if (result != null)
+            {
+                Context.Jobs.Remove(result);
+                await Context.SaveChangesAsync();
+                return result;
+            }
+            return null;
         }
     }
 }

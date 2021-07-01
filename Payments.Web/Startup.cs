@@ -52,6 +52,14 @@ namespace Payments.Web
             {
                 client.BaseAddress = new Uri("https://localhost:44387/");
             });
+            services.AddHttpClient<IContractService, ContractService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44387/");
+            });
+            services.AddHttpClient<IJobsService, JobsService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44387/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

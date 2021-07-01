@@ -1,0 +1,34 @@
+﻿@page "/homepage"
+@inherits HomePageBase
+
+<h5>testatesttest</h5>
+@if (Contracts != null)
+{
+    foreach (var cnt in Contracts)
+    {
+<div class="card">
+    <div>
+        @cnt.IdContract
+    </div>
+    <div>
+        @cnt.PayersName
+    </div>
+    <div>
+        @cnt.ReciversName
+    </div>
+    <div>
+        @cnt.StartDate
+    </div>
+    <div>
+        @cnt.EndDate
+    </div>
+    <div>
+        @cnt.IsActivated
+    </div>
+</div>
+    }
+}
+
+
+
+<h5>unoduetest</h5>

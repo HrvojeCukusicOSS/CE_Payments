@@ -22,7 +22,7 @@ namespace Payments.Domain.Repository
 
         public async Task<IEnumerable<FinalBill>> GetFinalBills()
         {
-           // var a = appDbContext.FinalBills.Include(e => e.Payer).Include(e => e.Receiver).Include(e => e.Status).ToListAsync();
+           //var a = appDbContext.FinalBills.ToListAsync();
 
             return await appDbContext.FinalBills.Include(e => e.Payer).Include(e => e.Receiver).Include(e => e.Status).ToListAsync();
         }
@@ -60,8 +60,6 @@ namespace Payments.Domain.Repository
                 return result;
             }
             return null;
-
         }
-
     }
 }

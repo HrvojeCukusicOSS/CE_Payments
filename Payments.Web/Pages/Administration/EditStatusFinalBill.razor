@@ -1,12 +1,20 @@
 ﻿@page "/editstatusfinalbill/{id}"
-<<<<<<< HEAD
+
 @page "/editstatusfinalbill"
-=======
->>>>>>> main
+
 @inherits EditStatusFinalBillBase
 
 
 <h3>StatusFinalBill</h3>
+
+@if (warning)
+{
+    <div class="card card-body">
+
+    <h2>Delet action Faild</h2>
+        <p>Unable to delete Status, curent status is used on one of Final BIlls</p>
+    </div>
+}
 <EditForm Model="EditStatusModel" OnSubmit="OnSubmit">
 
 
@@ -55,5 +63,5 @@
                 </button>
             }
         </div>
-        </div>
+    </div>
 </EditForm>

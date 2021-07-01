@@ -14,6 +14,6 @@ namespace Payments.Model.Entities
         public string Name { get; set; }
         [InverseProperty("Payer")]
         [System.Text.Json.Serialization.JsonIgnore]
-        public virtual ICollection<FinalBill> FinalBill { get; set; }
+        public virtual ICollection<FinalBill> FinalBill { get; set; } 
     }
 }

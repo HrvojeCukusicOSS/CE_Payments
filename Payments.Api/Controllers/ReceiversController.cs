@@ -22,7 +22,7 @@ namespace Payments.Api.Controllers
         {
             return View();
         }
-
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<ReceiversTable>>> GetReceivers()
         {
             try
@@ -35,6 +35,7 @@ namespace Payments.Api.Controllers
                     "Error retrieving data from the database");
             }
         }
+        [HttpGet]
         public async Task<ActionResult<ReceiversTable>> GetReceiver(int id)
         {
             try
@@ -47,6 +48,7 @@ namespace Payments.Api.Controllers
                     "Error retrieving data from the database");
             }
         }
+        [HttpPut]
         public async Task<ActionResult<ReceiversTable>> UpdateReceiver(int id, ReceiversTable receiver)
         {
             try
@@ -65,6 +67,7 @@ namespace Payments.Api.Controllers
                 "Error updating user");
             }
         }
+        [HttpPost]
         public async Task<ActionResult<ReceiversTable>> AddUserModel(ReceiversTable receivermodel)
         {
             try
@@ -82,6 +85,7 @@ namespace Payments.Api.Controllers
             }
 
         }
+        [HttpDelete]
         public async Task<ActionResult<ReceiversTable>> DeleteUserModel(int id)
         {
             try
@@ -100,7 +104,6 @@ namespace Payments.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError,
                 "Error creating new employee record");
             }
-
         }
     }
 }

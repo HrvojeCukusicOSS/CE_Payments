@@ -14,8 +14,7 @@ namespace Payments.Model.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        /*[InverseProperty("Job")]
-        [System.Text.Json.Serialization.JsonIgnore]*/
-        public virtual ICollection<FinalBill> FinalBill { get; set; }
+        public int JobListId { get; set; }
+        public JobsList JobList { get; set; }
     }
 }
